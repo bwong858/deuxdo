@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import Form, { Validation } from '../../elements/Form';
 import { signup } from '../../../store/actions/user';
-import { ERROR, WARNING } from '../../constants';
+import { ERROR, WARNING, EMPLOYEE, MANAGER } from '../../constants';
 
 class SignupForm extends Form {
   state = {
@@ -88,7 +88,8 @@ class SignupForm extends Form {
       first_name: first_name.trim(),
       last_name: last_name.trim(),
       email: email.trim(),
-      password: password
+      password: password,
+      role: EMPLOYEE
     });
   };
 }
