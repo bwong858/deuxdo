@@ -8,7 +8,9 @@ export const Validation = function(type, message) {
   this.message = message;
 };
 
-const isPasswordInput = inputName => inputName.toLowerCase().indexOf('password') !== -1;
+export const requiredValidation = new Validation(ERROR, 'Must be provided');
+
+const isPasswordInput = inputName => inputName.toLowerCase().includes('password');
 
 class Form extends Component {
   // must provide
@@ -26,7 +28,9 @@ class Form extends Component {
       validator: () => {
         const something = this.state.inputs.something.trim();
 
-        if (!something) return new Validation(ERROR, 'Something must be provided');
+        if (!something) return requiredValidation;
+        if (!something.toLowerCase().includes('cowbell'))
+          return new Validation(ERROR, 'Needs more cowbell');
         return null;
       }
     }
@@ -132,7 +136,10 @@ class Form extends Component {
 
         return (
           <div key={`input-${input}`} className={`input-${input}`}>
-            <label htmlFor={input}>{label}</label>
+            <div className="label-and-message-container">
+              <label htmlFor={input}>{label}</label>
+              {validation && <InlineMessage type={validation.type} text={validation.message} />}
+            </div>
             <input
               className={validation && validation.type}
               type={inputType}
@@ -142,7 +149,6 @@ class Form extends Component {
               onChange={this.onChange}
               onBlur={this.validateOne}
             />
-            {validation && <InlineMessage type={validation.type} text={validation.message} />}
           </div>
         );
       })}

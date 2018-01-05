@@ -2,4 +2,7 @@
   &.warning {
     color: orange;
   }
+  &.error {
+    color: $errorRed;
+  }
 }

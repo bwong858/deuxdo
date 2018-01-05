@@ -7,7 +7,7 @@ const linkProps = {
 
 const AppFooter = () => (
   <footer id="app-footer">
-    <h2>FOOTER</h2>
+    <p>...nothing to see in this footer.</p>
   </footer>
 );
 

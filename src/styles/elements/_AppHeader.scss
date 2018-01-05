@@ -1,0 +1,35 @@
+#app-header {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(10rem, 1fr));
+  background-color: $pleasantBlue;
+  color: white;
+  padding: 1rem;
+
+  h1 {
+    grid-column: 2 / 3;
+    margin: 0;
+    font-size: 2.4rem;
+  }
+
+  .logout-container {
+    text-align: right;
+
+    p {
+      margin-bottom: 0.2rem;
+    }
+
+    button {
+      font-size: 0.8rem;
+      color: maroon;
+    }
+  }
+
+  // .create-container {
+  //   text-align: right;
+  //   a {
+  //     font-size: 1.1rem;
+  //     color: rgb(132, 230, 132);
+  //     text-decoration: underline;
+  //   }
+  // }
+}

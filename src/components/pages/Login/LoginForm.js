@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Form, { Validation } from '../../elements/Form';
+import Form, { Validation, requiredValidation } from '../../elements/Form';
 import { userLoggedIn } from '../../../store/actions/auth';
 // import { login } from '../../../store/actions/auth';
 import { ERROR } from '../../constants';
@@ -16,11 +16,11 @@ class LoginForm extends Form {
   inputProps = {
     email: {
       label: 'Email',
-      placeholder: 'j.doherty@email.com',
+      placeholder: 'manofmuffins@email.com',
       validator: () => {
         const email = this.state.inputs.email.trim();
 
-        if (!email) return new Validation(ERROR, 'Gotta provide your email to log in!');
+        if (!email) return requiredValidation;
         return null;
       }
     },
@@ -30,7 +30,7 @@ class LoginForm extends Form {
       validator: () => {
         const password = this.state.inputs.password;
 
-        if (!password) return new Validation(ERROR, 'You best have used a password...');
+        if (!password) return new Validation(ERROR, 'Por favor...');
         return null;
       }
     }

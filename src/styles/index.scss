@@ -1,6 +1,7 @@
 @import 'bootstrap-reboot';
-@import 'miscUI';
-@import 'pages/SignupAndLogin';
+@import 'variables';
+@import 'elements/index';
+@import 'pages/index';
 
 html,
 body,
@@ -11,20 +12,16 @@ body,
 }
 
 body {
-  background-color: #eee;
+  background-color: #c9e0ed;
   font-size: 16px;
-  padding: 1rem;
+  text-align: center;
+  // padding: 1rem;
 }
 
 #app-wrapper {
   display: grid;
   grid-gap: 0.5rem;
-  grid-template-rows: 6rem auto 3rem;
-}
-
-#app-header,
-#app-footer {
-  text-align: center;
+  grid-template-rows: 6rem minmax(20rem, auto) 3rem;
 }
 
 .image-container {

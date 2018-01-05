@@ -24,13 +24,16 @@ class SignupPage extends Component {
     return (
       <div id="signup-page">
         <h1>Signup</h1>
-        {this.state.showWarning && (
-          <InlineMessage type={WARNING} text="For employees only. Managers, please see IT." />
-        )}
         <SignupForm />
         <h3>
           or <Link to="/login">Log In</Link>
         </h3>
+        {this.state.showWarning && (
+          <InlineMessage
+            type={WARNING}
+            text="This is for employees only. Managers, please see IT"
+          />
+        )}
       </div>
     );
   }
