@@ -4,21 +4,13 @@ import { Route, Redirect } from 'react-router-dom';
 
 import { isManager } from '../utils';
 
-const ManagerRoute = ({ user, isAuthenticated, component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      isAuthenticated ? (
-        isManager(user) ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/todos" />
-        )
-      ) : (
-        <Redirect to="/login" />
-      )
-    }
-  />
-);
+const ManagerRoute = ({ user, isAuthenticated, component: Component, ...rest }) => {
+  if (!isAuthenticated) return <Redirect to="/login" />;
+  return isManager(user) ? (
+    <Route {...rest} render={props => <Component {...props} />} />
+  ) : (
+    <Redirect to="/todos" />
+  );
+};
 
 export default connect(({ user }) => ({ user, isAuthenticated: !!user.email }), null)(ManagerRoute);
