@@ -1,0 +1,46 @@
+#todos-page {
+  .list {
+    margin: 2rem;
+
+    > div {
+      text-align: left;
+      background-color: $pleasantBlue;
+      margin: 0.5rem;
+      padding: 0.5rem 2rem;
+
+      h4,
+      p {
+        margin: 0;
+      }
+
+      span {
+        display: inline-block;
+        height: 1.2rem;
+        width: 1.2rem;
+
+        &.complete {
+          background-image: url('/src/assets/check-box.png');
+          background-size: contain;
+        }
+
+        &.active {
+          background-image: url('/src/assets/check-box-empty.png');
+          background-size: contain;
+        }
+
+        &.completion-toggle.employee:hover {
+          cursor: pointer;
+        }
+      }
+
+      .title-and-summary {
+        display: inline-block;
+        &.complete {
+          color: grey;
+        }
+        &.active {
+        }
+      }
+    }
+  }
+}

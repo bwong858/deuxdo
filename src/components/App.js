@@ -4,6 +4,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import GuestRoute from './routes/GuestRoute';
 import UserRoute from './routes/UserRoute';
 import ManagerRoute from './routes/ManagerRoute';
+
+import MessageModal from './elements/MessageModal';
 import AppHeader from './elements/AppHeader';
 import AppFooter from './elements/AppFooter';
 import SignupPage from './pages/Signup/SignupPage';
@@ -14,7 +16,8 @@ import EditPage from './pages/Edit/EditPage';
 
 const App = ({ location }) => (
   <div id="app-wrapper">
-    <AppHeader location={location} />
+    <MessageModal />
+    <AppHeader />
     <div id="app-body">
       <Switch>
         <GuestRoute location={location} exact path="/signup" component={SignupPage} />

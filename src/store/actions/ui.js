@@ -1,7 +1,12 @@
-import { SET_LOADING_MESSAGE, SET_ERROR_MESSAGE } from './actionTypes';
+import { SET_MODAL_MESSAGE, SET_ERROR_MESSAGE } from './actionTypes';
 
-export const setLoadingMessage = message => ({
-  type: SET_LOADING_MESSAGE,
+export const dispatchModalMessage = (message, displayTimeMS) => dispatch => {
+  dispatch(setModalMessage(message));
+  setTimeout(() => dispatch(setModalMessage(null)), displayTimeMS);
+};
+
+export const setModalMessage = message => ({
+  type: SET_MODAL_MESSAGE,
   message
 });
 

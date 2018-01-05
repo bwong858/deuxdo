@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import { addTodo } from '../../../store/actions/todos';
+import { dispatchModalMessage } from '../../../store/actions/ui';
 import Form, { requiredValidation } from '../../elements/Form';
 
 class CreateForm extends Form {
@@ -36,7 +37,14 @@ class CreateForm extends Form {
       title: title.trim(),
       summary: summary.trim()
     });
+    this.setState({
+      inputs: {
+        title: '',
+        summary: ''
+      }
+    });
+    this.props.dispatchModalMessage('Successfully added', 500);
   };
 }
 
-export default connect(null, { addTodo })(CreateForm);
+export default connect(null, { addTodo, dispatchModalMessage })(CreateForm);

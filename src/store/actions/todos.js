@@ -3,7 +3,7 @@ import UUID from 'uuid/v1';
 import { ADD_TODO, REMOVE_TODO, EDIT_TODO, TOGGLE_TODO_COMPLETION } from '../actions/actionTypes';
 
 export const addTodo = todo => {
-  todo.active = true;
+  todo.complete = false;
   todo.creation_date = Date.now();
   todo.edit_date = todo.creation_date;
   todo.id = UUID();
