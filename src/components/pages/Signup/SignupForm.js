@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 
-import Form, { Validation, requiredValidation } from '../../elements/Form';
+import Form, { Validation, requiredValidation, validationTypes } from '../../elements/Form';
 import { signup } from '../../../store/actions/user';
-import { ERROR, WARNING, EMPLOYEE, REQUIRED } from '../../constants';
+
+const { ERROR, WARNING, EMPLOYEE, REQUIRED } = validationTypes;
 
 class SignupForm extends Form {
   state = {

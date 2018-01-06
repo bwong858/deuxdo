@@ -1,6 +1,27 @@
 import { ADD_TODO, REMOVE_TODO, EDIT_TODO, TOGGLE_TODO_COMPLETION } from '../actions/actionTypes';
 
-export default (state = {}, action) => {
+const dummyTodo = {
+  id: '8189sjjs',
+  title: 'I am a dummy todo',
+  summary: 'Here is my summary....',
+  creation_date: 1515187916985,
+  edit_date: 1515187916985,
+  complete: false
+};
+
+const dummyTodo2 = {
+  id: '8189sjjs2',
+  title: 'I am a dummy todo as well',
+  summary:
+    'Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one',
+  creation_date: 1515187916986,
+  edit_date: 1515187916986,
+  complete: false
+};
+
+const dummyState = { '8189sjjs': dummyTodo, '8189sjjs2': dummyTodo2 };
+
+export default (state = dummyState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return { ...state, [action.todo.id]: action.todo };
@@ -21,3 +42,5 @@ export default (state = {}, action) => {
       return state;
   }
 };
+
+console.log('dummyState here');

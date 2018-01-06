@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { addTodo } from '../../../store/actions/todos';
 import { dispatchModalMessage } from '../../../store/actions/ui';
-import Form, { requiredValidation } from '../../elements/Form';
+import Form, { Validation, requiredValidation, validationTypes } from '../../elements/Form';
 
 class CreateForm extends Form {
   state = {
@@ -18,11 +18,17 @@ class CreateForm extends Form {
       validator: () => {
         const title = this.state.inputs.title.trim();
         if (!title) return requiredValidation;
+        if (title.length > 100)
+          return new Validation(
+            validationTypes.ERROR,
+            `Must be less than 100 characters. Current count: ${title.length}`
+          );
         return null;
       }
     },
     summary: {
-      label: 'Summary'
+      label: 'Summary',
+      inputType: 'textarea'
     }
   };
 

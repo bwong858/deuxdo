@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(10rem, 1fr));
   background-color: $headerBlue;
+  border-bottom: 0.2rem solid $pleasantBlue;
   color: white;
   padding: 1rem;
 

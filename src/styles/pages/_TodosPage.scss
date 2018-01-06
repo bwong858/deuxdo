@@ -2,44 +2,63 @@
   .list {
     margin: 2rem;
 
-    > div {
+    h4,
+    p {
+      margin: auto 0;
+      padding-left: 0.5rem;
+    }
+
+    .complete {
+      color: grey;
+    }
+
+    .todo-item {
+      display: grid;
+      grid-template-columns: 2rem auto;
+      grid-template-rows: 2rem auto;
       text-align: left;
       background-color: $pleasantBlue;
+      border-radius: 0.1rem;
       margin: 0.5rem;
-      padding: 0.5rem 2rem;
-
-      h4,
-      p {
-        margin: 0;
-      }
+      padding: 0.5rem 1rem;
 
       span {
-        display: inline-block;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
         height: 1.2rem;
         width: 1.2rem;
+        margin: auto;
+
+        &.complete,
+        &.active {
+          background-color: white;
+          border-radius: 25%;
+          background-size: contain;
+        }
 
         &.complete {
-          background-image: url('/src/assets/check-box.png');
-          background-size: contain;
+          background-image: url('/src/assets/check-box-grey.png');
         }
 
         &.active {
           background-image: url('/src/assets/check-box-empty.png');
-          background-size: contain;
         }
 
         &.completion-toggle.employee:hover {
           cursor: pointer;
+          border: 1px solid;
+          border-radius: 25%;
         }
       }
 
-      .title-and-summary {
-        display: inline-block;
-        &.complete {
-          color: grey;
-        }
-        &.active {
-        }
+      h4 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+      }
+
+      p {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
       }
     }
   }

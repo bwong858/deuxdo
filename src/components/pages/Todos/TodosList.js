@@ -23,15 +23,13 @@ const TodoItem = connect(null, { toggleTodoCompletion })(
     completionToggleClassName += todo.complete ? ' complete' : ' active';
 
     return (
-      <div>
+      <div className={todo.complete ? 'todo-item complete' : 'todo-item'}>
         <span
           className={completionToggleClassName}
           onClick={userIsEmployee ? () => toggleTodoCompletion(todo) : null}
         />
-        <div className={todo.complete ? 'title-and-summary complete' : 'title-and-summary active'}>
-          <h4>{todo.title}</h4>
-          {todo.summary && <p>{todo.summary}</p>}
-        </div>
+        <h4>{todo.title}</h4>
+        {todo.summary && <p>{todo.summary}</p>}
       </div>
     );
   }

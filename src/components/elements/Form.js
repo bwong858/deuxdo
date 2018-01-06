@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 
 import InlineMessage from './InlineMessage';
-import { ERROR } from '../constants';
 
 export const Validation = function(type, message) {
   this.type = type;
   this.message = message;
 };
 
-export const requiredValidation = new Validation(ERROR, 'Must be provided');
+export const validationTypes = {
+  ERROR: 'error',
+  WARNING: 'warning'
+};
+
+export const requiredValidation = new Validation(validationTypes.ERROR, 'Must be provided');
 
 const isPasswordInput = inputName => inputName.toLowerCase().includes('password');
 
@@ -30,7 +34,7 @@ class Form extends Component {
 
         if (!something) return requiredValidation;
         if (!something.toLowerCase().includes('cowbell'))
-          return new Validation(ERROR, 'Needs more cowbell');
+          return new Validation(validationTypes.ERROR, 'Needs more cowbell');
         return null;
       }
     }
@@ -70,7 +74,7 @@ class Form extends Component {
       if (validator) {
         const validation = validator();
         inputValidations[input] = validation;
-        if (validation && validation.type === ERROR) areErrors = true;
+        if (validation && validation.type === validationTypes.ERROR) areErrors = true;
       }
     }
 
@@ -130,25 +134,36 @@ class Form extends Component {
   renderInputFields = () => (
     <div className="input-fields">
       {Object.keys(this.state.inputs).map(input => {
-        const { label, placeholder } = this.inputProps[input];
+        const { label, placeholder, inputType } = this.inputProps[input];
         const validation = this.state.inputValidations[input];
-        const inputType = isPasswordInput(input) ? 'password' : 'text';
 
         return (
-          <div key={`input-${input}`} className={`input-${input}`}>
+          <div key={`input-${input}`} className={`field-container ${input}`}>
             <div className="label-and-message-container">
               <label htmlFor={input}>{label}</label>
               {validation && <InlineMessage type={validation.type} text={validation.message} />}
             </div>
-            <input
-              className={validation && validation.type}
-              type={inputType}
-              name={input}
-              value={this.state.inputs[input]}
-              placeholder={placeholder}
-              onChange={this.onChange}
-              onBlur={this.validateOne}
-            />
+            {!inputType ? (
+              <input
+                className={validation && validation.type}
+                type={isPasswordInput(input) ? 'password' : 'text'}
+                name={input}
+                value={this.state.inputs[input]}
+                placeholder={placeholder || ''}
+                onChange={this.onChange}
+                onBlur={this.validateOne}
+              />
+            ) : (
+              <textarea
+                className={validation && validation.type}
+                type={inputType}
+                name={input}
+                value={this.state.inputs[input]}
+                placeholder={placeholder || ''}
+                onChange={this.onChange}
+                onBlur={this.validateOne}
+              />
+            )}
           </div>
         );
       })}

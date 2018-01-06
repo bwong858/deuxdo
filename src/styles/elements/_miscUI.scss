@@ -1,3 +1,10 @@
+button {
+  &:hover {
+    cursor: pointer;
+  }
+  border-radius: 0.2rem;
+}
+
 .inline-message {
   &.warning {
     color: orange;

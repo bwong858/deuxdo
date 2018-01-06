@@ -10,7 +10,7 @@ const AppHeader = ({ user, todos, logout }) => {
 
   return (
     <header id="app-header">
-      {userIsAuthenticated && <h3>Active Tasks: {activeTodosCount}</h3>}
+      {userIsAuthenticated && <h3>Incomplete Tasks: {activeTodosCount}</h3>}
       <h1>tasker</h1>
       {userIsAuthenticated && (
         <div>

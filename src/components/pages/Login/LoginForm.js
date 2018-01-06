@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 
-import Form, { Validation, requiredValidation } from '../../elements/Form';
+import Form, { Validation, requiredValidation, validationTypes } from '../../elements/Form';
 import { userLoggedIn } from '../../../store/actions/auth';
 // import { login } from '../../../store/actions/auth';
-import { ERROR } from '../../constants';
 
 class LoginForm extends Form {
   state = {
@@ -30,7 +29,7 @@ class LoginForm extends Form {
       validator: () => {
         const password = this.state.inputs.password;
 
-        if (!password) return new Validation(ERROR, 'Por favor...');
+        if (!password) return new Validation(validationTypes.ERROR, 'Por favor...');
         return null;
       }
     }

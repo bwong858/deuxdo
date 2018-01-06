@@ -7,9 +7,9 @@ const LoginPage = () => (
   <div id="login-page">
     <h1>Login</h1>
     <LoginForm />
-    <h3>
+    <h4>
       or <Link to="/signup">Sign Up</Link>
-    </h3>
+    </h4>
   </div>
 );
 

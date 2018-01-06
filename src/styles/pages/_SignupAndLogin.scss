@@ -1,9 +1,9 @@
 #signup-page,
 #login-page {
   background-color: $headerBlue;
-  // background-color: rgba(0, 0, 0, 0.6);
+  border: 0.2rem solid $pleasantBlue;
   border-radius: 0.5rem;
-  box-shadow: 0.6rem 0.6rem 1rem rgb(177, 177, 177);
+  box-shadow: 0.3rem 0.3rem 0.6rem rgb(133, 133, 133);
   color: white;
   width: 28rem;
   height: 32rem;
@@ -20,8 +20,6 @@
     .input-fields > div {
       height: 2.8rem;
       margin: 0.2rem;
-      // background-color: rgba(0, 0, 0, 0.2);
-      // border-radius: 0.2rem;
     }
 
     .label-and-message-container {
@@ -43,7 +41,7 @@
     }
 
     button {
-      margin-top: 0.5rem;
+      margin: 0.5rem;
     }
   }
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import SignupForm from './SignupForm';
 import InlineMessage from '../../elements/InlineMessage';
-import { WARNING } from '../../constants';
+import { validationTypes } from '../../elements/Form';
 
 class SignupPage extends Component {
   state = {
@@ -25,12 +25,12 @@ class SignupPage extends Component {
       <div id="signup-page">
         <h1>Signup</h1>
         <SignupForm />
-        <h3>
+        <h4>
           or <Link to="/login">Log In</Link>
-        </h3>
+        </h4>
         {this.state.showWarning && (
           <InlineMessage
-            type={WARNING}
+            type={validationTypes.WARNING}
             text="This is for employees only. Managers, please see IT"
           />
         )}

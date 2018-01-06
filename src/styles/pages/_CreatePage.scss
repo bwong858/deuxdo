@@ -1,0 +1,28 @@
+#create-page {
+  form {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: $pleasantBlue;
+
+    .field-container {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    .inline-message {
+      margin-left: 1rem;
+    }
+
+    input {
+      &[name='title'] {
+        min-width: 20rem;
+        width: 50%;
+        max-width: 40rem;
+      }
+    }
+
+    textarea {
+      width: 100%;
+    }
+  }
+}
