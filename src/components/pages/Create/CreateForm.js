@@ -49,7 +49,8 @@ class CreateForm extends Form {
         summary: ''
       }
     });
-    this.props.dispatchModalMessage('Successfully added', 500);
+    // this.props.dispatchModalMessage('Successfully added', 500);
+    this.props.onTaskAdded();
   };
 }
 

@@ -1,9 +1,11 @@
 #create-page {
-  form {
-    margin: 2rem;
+  > div {
+    @extend .lightly-rounded, .page-body;
+    max-width: 60rem;
     padding: 2rem;
     background-color: $pleasantBlue;
-
+  }
+  form {
     .field-container {
       text-align: left;
       margin-bottom: 1rem;
@@ -14,11 +16,9 @@
     }
 
     input {
-      &[name='title'] {
-        min-width: 20rem;
-        width: 50%;
-        max-width: 40rem;
-      }
+      min-width: 20rem;
+      width: 50%;
+      max-width: 40rem;
     }
 
     textarea {

@@ -19,7 +19,21 @@ const dummyTodo2 = {
   complete: false
 };
 
-const dummyState = { '8189sjjs': dummyTodo, '8189sjjs2': dummyTodo2 };
+const dummyTodo3 = {
+  id: '8189sjjs3',
+  title: 'I am a dummy todo as well, but with a longer title....., but with a longer title.....',
+  summary:
+    'Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one',
+  creation_date: 1515187916987,
+  edit_date: 1515187916987,
+  complete: false
+};
+
+const dummyState = {
+  '8189sjjs': dummyTodo,
+  '8189sjjs2': dummyTodo2,
+  '8189sjjs3': dummyTodo3
+};
 
 export default (state = dummyState, action) => {
   switch (action.type) {

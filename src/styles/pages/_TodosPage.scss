@@ -1,6 +1,30 @@
 #todos-page {
+  .options {
+    display: inline-block;
+    // margin-left: 4rem;
+    // text-align: left;
+    span {
+      font-size: 1.1rem;
+      color: rgb(52, 123, 246);
+      display: inline-block;
+      margin: 0 0.8rem;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: rgb(40, 94, 185);
+      }
+
+      &.selected {
+        font-weight: 600;
+        text-decoration: underline;
+      }
+    }
+  }
+
   .list {
-    margin: 2rem;
+    @extend .page-body;
+    max-width: 80rem;
 
     h4,
     p {
@@ -13,27 +37,53 @@
     }
 
     .todo-item {
+      @extend .lightly-rounded;
       display: grid;
-      grid-template-columns: 2rem auto;
-      grid-template-rows: 2rem auto;
+      grid-template-columns: 2rem auto 2rem 2rem;
+      grid-template-rows: minmax(2rem, auto) auto;
       text-align: left;
       background-color: $pleasantBlue;
-      border-radius: 0.1rem;
       margin: 0.5rem;
       padding: 0.5rem 1rem;
 
       span {
+        &.completion-toggle,
+        &.edit,
+        &.delete {
+          height: 1.2rem;
+          width: 1.2rem;
+          margin: auto;
+          background-size: contain;
+        }
+      }
+
+      span.edit,
+      span.delete {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      span.edit {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        background-image: url('/src/assets/pencil-edit-button-green.png');
+      }
+
+      span.delete {
+        grid-column: 4 / 5;
+        grid-row: 1 / 2;
+        background-image: url('/src/assets/delete-red.png');
+      }
+
+      span.completion-toggle {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
-        height: 1.2rem;
-        width: 1.2rem;
-        margin: auto;
 
         &.complete,
         &.active {
-          background-color: white;
+          background-color: $backgroundBlue;
           border-radius: 25%;
-          background-size: contain;
         }
 
         &.complete {
@@ -44,7 +94,7 @@
           background-image: url('/src/assets/check-box-empty.png');
         }
 
-        &.completion-toggle.employee:hover {
+        &.employee:hover {
           cursor: pointer;
           border: 1px solid;
           border-radius: 25%;
@@ -57,7 +107,7 @@
       }
 
       p {
-        grid-column: 2 / 3;
+        grid-column: 2 / 5;
         grid-row: 2 / 3;
       }
     }
