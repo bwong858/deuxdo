@@ -9,8 +9,11 @@ const enhancers = composeEnhancers(applyMiddleware(thunk));
 
 // https://stackoverflow.com/questions/35622588/how-to-reset-the-state-of-a-redux-store
 const rootReducer = (state, action) => {
-  localStorage.removeItem('taskerJWT');
-  return appReducer(action.type === USER_LOGGED_OUT ? { ...state, user: {} } : state, action);
+  if (action.type === USER_LOGGED_OUT) {
+    localStorage.removeItem('taskerJWT');
+  }
+  return appReducer(state, action);
+  // return appReducer(action.type === USER_LOGGED_OUT ? state : state, action);
 };
 
 export default createStore(rootReducer, {}, enhancers);
