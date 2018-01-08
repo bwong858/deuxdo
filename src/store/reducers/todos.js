@@ -2,28 +2,27 @@ import { ADD_TODO, REMOVE_TODO, EDIT_TODO, TOGGLE_TODO_COMPLETION } from '../act
 
 const dummyTodo = {
   id: '8189sjjs',
-  title: 'I am a dummy todo',
-  summary: 'Here is my summary....',
-  creation_date: 1515187916985,
-  edit_date: 1515187916985,
+  title: 'I am a dummy todo. Do things with me',
+  summary:
+    "Toggle me complete/incomplete if you're an employee, or edit or delete me if you're a manager",
+  creation_date: 1515187916989,
+  edit_date: 1515187916989,
   complete: false
 };
 
 const dummyTodo2 = {
   id: '8189sjjs2',
-  title: 'I am a dummy todo as well',
-  summary:
-    'Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one',
-  creation_date: 1515187916986,
-  edit_date: 1515187916986,
+  title: 'Check the filtering out',
+  creation_date: 1515187916988,
+  edit_date: 1515187916988,
   complete: false
 };
 
 const dummyTodo3 = {
   id: '8189sjjs3',
-  title: 'I am a dummy todo as well, but with a longer title....., but with a longer title.....',
+  title: 'Enjoy some lorem ipsum',
   summary:
-    'Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one Here comes a longer one',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   creation_date: 1515187916987,
   edit_date: 1515187916987,
   complete: false

@@ -155,7 +155,7 @@ class Form extends Component {
           const validation = this.state.inputValidations[input];
           const validationClass = (validation && validation.type) || '';
           const sharedProps = {
-            class: validationClass,
+            className: validationClass,
             name: input,
             value: this.state.inputs[input],
             placeholder: placeholder || '',

@@ -1,4 +1,5 @@
 // import decode from 'jwt-decode';
+import jwt from 'jsonwebtoken';
 
 import { USER_LOGGED_IN, USER_LOGGED_OUT } from './actionTypes';
 // import { setErrorMessage } from './ui';
@@ -25,10 +26,13 @@ export const logout = () => dispatch => {
   dispatch(userLoggedOut());
 };
 
-export const userLoggedIn = user => ({
-  type: USER_LOGGED_IN,
-  user
-});
+export const userLoggedIn = user => {
+  localStorage.taskerJWT = jwt.sign({ user }, 'supercrazysecret');
+  return {
+    type: USER_LOGGED_IN,
+    user
+  };
+};
 
 export const userLoggedOut = () => ({
   type: USER_LOGGED_OUT

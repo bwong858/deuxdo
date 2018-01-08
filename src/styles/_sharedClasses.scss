@@ -5,3 +5,9 @@
 .page-body {
   margin: 2rem auto;
 }
+
+.clickable {
+  &:hover {
+    cursor: pointer;
+  }
+}

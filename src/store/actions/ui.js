@@ -1,3 +1,6 @@
+import jwt from 'jsonwebtoken';
+import decode from 'jwt-decode';
+
 import { SET_MODAL_MESSAGE, SET_ERROR_MESSAGE, SET_TODOS_DISPLAY_CRITERIA } from './actionTypes';
 
 export const dispatchModalMessage = (message, displayTimeMS) => dispatch => {
@@ -15,7 +18,13 @@ export const setErrorMessage = message => ({
   message
 });
 
-export const setTodosDisplayCriteria = criteria => ({
-  type: SET_TODOS_DISPLAY_CRITERIA,
-  criteria
-});
+export const setTodosDisplayCriteria = criteria => {
+  // if (localStorage.taskerJWT) {
+  //   const { user } = decode(localStorage.taskerJWT);
+  //   localStorage.taskerJWT = jwt.sign({ user, todosDisplayCriteria: criteria }, 'supercrazysecret');
+  // }
+  return {
+    type: SET_TODOS_DISPLAY_CRITERIA,
+    criteria
+  };
+};

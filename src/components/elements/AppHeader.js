@@ -14,7 +14,7 @@ const AppHeader = ({ user, todos, logout }) => {
       <h1>tasker</h1>
       {userIsAuthenticated && (
         <div>
-          <p>Hi, {user.email}</p>
+          <p>Hi, {user.first_name || user.email}</p>
           <button onClick={logout}>Log Out</button>
         </div>
       )}
