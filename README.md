@@ -8,4 +8,4 @@ To run locally, simply clone the repo, run `yarn` or `npm i` to install dependen
 
 ## Demoing
 
-To demo easily, just click the "Employee" or "Manager" button at the bottom of the login page
+To demo, click the "Employee" and "Manager" buttons at the bottom of the login page, and logout/switch users by clicking the logout button at top right
