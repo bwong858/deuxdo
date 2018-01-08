@@ -2,7 +2,12 @@ import { connect } from 'react-redux';
 
 import { addTodo } from '../../../store/actions/todos';
 import { dispatchModalMessage } from '../../../store/actions/ui';
-import Form, { Validation, requiredValidation, validationTypes } from '../../elements/Form';
+import Form, {
+  Validation,
+  requiredValidation,
+  validationTypes,
+  inputTypes
+} from '../../elements/Form';
 
 class CreateForm extends Form {
   state = {
@@ -28,7 +33,7 @@ class CreateForm extends Form {
     },
     summary: {
       label: 'Summary',
-      inputType: 'textarea'
+      inputType: inputTypes.TEXTAREA
     }
   };
 

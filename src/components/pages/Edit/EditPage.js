@@ -67,8 +67,8 @@ class EditPage extends React.Component {
         <Link to="/todos">Back to Tasks</Link>
         <div>
           <form onSubmit={this.onSubmit}>
-            <div className="input-fields">
-              <div className="field-container">
+            <div className="fields">
+              <div className="field">
                 <label htmlFor="title">Title</label>
                 {this.state.validation && (
                   <InlineMessage type="error" text={this.state.validation} />
@@ -80,7 +80,7 @@ class EditPage extends React.Component {
                   onChange={this.onChange}
                 />
               </div>
-              <div className="field-container">
+              <div className="field">
                 <label htmlFor="summary">Summary</label>
                 <textarea name="summary" value={this.state.todo.summary} onChange={this.onChange} />
               </div>

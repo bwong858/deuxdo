@@ -17,26 +17,29 @@
   form {
     margin: 1rem;
 
-    .input-fields > div {
+    .field {
       height: 2.8rem;
       margin: 0.2rem;
     }
 
-    .label-and-message-container {
+    .label-and-validation {
       display: inline-block;
       * {
         margin: 0;
         display: block;
         text-align: left;
       }
-    }
-
-    .inline-message {
-      font-size: 0.8rem;
+      .inline-message {
+        font-size: 0.8rem;
+      }
     }
 
     input {
       width: 15rem;
+    }
+
+    .input {
+      display: inline-block;
       vertical-align: top;
     }
 
