@@ -13,7 +13,7 @@ class CreatePage extends Component {
     this.setState({
       showTaskAddedNotification: true
     });
-    setTimeout(() => this.setState({ showTaskAddedNotification: false }), 1200);
+    setTimeout(() => this.setState({ showTaskAddedNotification: false }), 2000);
   };
 
   render() {
@@ -22,9 +22,9 @@ class CreatePage extends Component {
         <h1>New Task</h1>
         <Link to="/todos">Back to Tasks</Link>
         <div>
-          {this.state.showTaskAddedNotification && <h3>Task added!</h3>}
           <CreateForm onTaskAdded={this.notifyTaskAdded} />
         </div>
+        {this.state.showTaskAddedNotification && <h2>Task added</h2>}
       </div>
     );
   }

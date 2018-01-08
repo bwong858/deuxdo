@@ -1,28 +1,31 @@
 #create-page {
   > div {
     @extend .lightly-rounded, .page-body;
-    max-width: 60rem;
+    max-width: 50rem;
     padding: 2rem;
     background-color: $pleasantBlue;
   }
   form {
     .field-container {
-      text-align: left;
       margin-bottom: 1rem;
     }
 
-    .inline-message {
-      margin-left: 1rem;
+    label {
+      display: block;
+      color: $headerBlue;
+      font-size: 1.1rem;
+      font-weight: 600;
     }
 
-    input {
+    input,
+    textarea {
       min-width: 20rem;
-      width: 50%;
+      width: 100%;
       max-width: 40rem;
     }
 
     textarea {
-      width: 100%;
+      height: 5rem;
     }
   }
 }

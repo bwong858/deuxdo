@@ -14,7 +14,7 @@ import TodosPage from './pages/Todos/TodosPage';
 import CreatePage from './pages/Create/CreatePage';
 import EditPage from './pages/Edit/EditPage';
 
-const App = ({ location }) => (
+const App = ({ location, history }) => (
   <div id="app-wrapper">
     <MessageModal />
     <AppHeader />
@@ -22,13 +22,25 @@ const App = ({ location }) => (
       <Switch>
         <GuestRoute location={location} exact path="/signup" component={SignupPage} />
         <GuestRoute location={location} exact path="/login" component={LoginPage} />
-        <UserRoute location={location} exact path="/todos" component={TodosPage} />
+        <UserRoute
+          location={location}
+          history={history}
+          exact
+          path="/todos"
+          component={TodosPage}
+        />
         <ManagerRoute location={location} exact path="/create" component={CreatePage} />
-        <ManagerRoute location={location} exact path="/edit" component={EditPage} />
+        <ManagerRoute
+          location={location}
+          history={history}
+          exact
+          path="/edit/:todoId"
+          component={EditPage}
+        />
         <Redirect to="/todos" />
       </Switch>
     </div>
-    <AppFooter />
+    {/*<AppFooter />*/}
   </div>
 );
 

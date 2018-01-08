@@ -51,9 +51,9 @@ class Form extends Component {
     console.log('no errors :D');
   };
 
-  componentWillMount() {
+  componentWillMount = () => {
     this.setState({ inputValidations: {}, previousInputs: {} });
-  }
+  };
 
   validateOne = e => {
     const input = e.target.name;
@@ -131,49 +131,45 @@ class Form extends Component {
       .catch(console.log);
   };
 
-  renderInputFields = () => (
-    <div className="input-fields">
-      {Object.keys(this.state.inputs).map(input => {
-        const { label, placeholder, inputType } = this.inputProps[input];
-        const validation = this.state.inputValidations[input];
-
-        return (
-          <div key={`input-${input}`} className={`field-container ${input}`}>
-            <div className="label-and-message-container">
-              <label htmlFor={input}>{label}</label>
-              {validation && <InlineMessage type={validation.type} text={validation.message} />}
-            </div>
-            {!inputType ? (
-              <input
-                className={validation && validation.type}
-                type={isPasswordInput(input) ? 'password' : 'text'}
-                name={input}
-                value={this.state.inputs[input]}
-                placeholder={placeholder || ''}
-                onChange={this.onChange}
-                onBlur={this.validateOne}
-              />
-            ) : (
-              <textarea
-                className={validation && validation.type}
-                type={inputType}
-                name={input}
-                value={this.state.inputs[input]}
-                placeholder={placeholder || ''}
-                onChange={this.onChange}
-                onBlur={this.validateOne}
-              />
-            )}
-          </div>
-        );
-      })}
-    </div>
-  );
-
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        {this.renderInputFields()}
+        <div className="input-fields">
+          {Object.keys(this.state.inputs).map(input => {
+            const { label, placeholder, inputType } = this.inputProps[input];
+            const validation = this.state.inputValidations[input];
+
+            return (
+              <div key={`input-${input}`} className={`field-container ${input}`}>
+                <div className="label-and-message-container">
+                  <label htmlFor={input}>{label}</label>
+                  {validation && <InlineMessage type={validation.type} text={validation.message} />}
+                </div>
+                {!inputType ? (
+                  <input
+                    className={validation && validation.type}
+                    type={isPasswordInput(input) ? 'password' : 'text'}
+                    name={input}
+                    value={this.state.inputs[input]}
+                    placeholder={placeholder || ''}
+                    onChange={this.onChange}
+                    onBlur={this.validateOne}
+                  />
+                ) : (
+                  <textarea
+                    className={validation && validation.type}
+                    type={inputType}
+                    name={input}
+                    value={this.state.inputs[input]}
+                    placeholder={placeholder || ''}
+                    onChange={this.onChange}
+                    onBlur={this.validateOne}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
         <button type="submit">{this.options.buttonLabel}</button>
       </form>
     );

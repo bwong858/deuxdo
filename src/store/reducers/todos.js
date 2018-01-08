@@ -40,7 +40,10 @@ export default (state = dummyState, action) => {
     case ADD_TODO:
       return { ...state, [action.todo.id]: action.todo };
     case EDIT_TODO:
-      return { ...state, [action.todo.id]: { ...action.todo, edit_date: Date.now() } };
+      return {
+        ...state,
+        [action.todo.id]: { ...action.todo, edit_date: Date.now() }
+      };
     case TOGGLE_TODO_COMPLETION:
       return {
         ...state,

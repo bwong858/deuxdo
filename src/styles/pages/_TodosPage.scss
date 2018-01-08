@@ -1,6 +1,8 @@
 #todos-page {
   .options {
     display: inline-block;
+    margin-bottom: 2rem;
+    // background-color: $pleasantBlue;
     // margin-left: 4rem;
     // text-align: left;
     span {
@@ -16,13 +18,13 @@
       }
 
       &.selected {
-        font-weight: 600;
-        text-decoration: underline;
+        font-weight: 800;
+        // text-decoration: underline;
       }
     }
   }
 
-  .list {
+  .options-and-list {
     @extend .page-body;
     max-width: 80rem;
 

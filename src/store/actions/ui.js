@@ -1,4 +1,4 @@
-import { SET_MODAL_MESSAGE, SET_ERROR_MESSAGE, SET_TODOS_VISIBILITY_FILTER } from './actionTypes';
+import { SET_MODAL_MESSAGE, SET_ERROR_MESSAGE, SET_TODOS_DISPLAY_CRITERIA } from './actionTypes';
 
 export const dispatchModalMessage = (message, displayTimeMS) => dispatch => {
   dispatch(setModalMessage(message));
@@ -15,7 +15,7 @@ export const setErrorMessage = message => ({
   message
 });
 
-export const setTodosVisibilityFilter = filter => ({
-  type: SET_TODOS_VISIBILITY_FILTER,
-  filter
+export const setTodosDisplayCriteria = criteria => ({
+  type: SET_TODOS_DISPLAY_CRITERIA,
+  criteria
 });
