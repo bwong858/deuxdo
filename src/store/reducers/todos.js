@@ -13,6 +13,7 @@ const dummyTodo = {
 const dummyTodo2 = {
   id: '8189sjjs2',
   title: 'Check the filtering out',
+  summary: '',
   creation_date: 1515187916988,
   edit_date: 1515187916988,
   complete: false
