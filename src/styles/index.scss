@@ -1,6 +1,6 @@
 @import 'bootstrap-reboot';
 @import 'sharedClasses';
-@import 'variables';
+@import 'colors';
 @import 'elements/index';
 @import 'pages/index';
 
@@ -13,7 +13,7 @@ body,
 }
 
 body {
-  background-color: $backgroundBlue;
+  background-color: #eee;
   font-size: 16px;
   text-align: center;
 }
@@ -28,8 +28,6 @@ body {
   padding: 2rem;
 }
 
-.image-container {
-  img {
-    max-width: 100%;
-  }
+.image-container > img {
+  max-width: 100%;
 }
